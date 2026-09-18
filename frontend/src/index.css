@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+body {
+  font-family: 'DM Sans', 'Times', sans-serif;
+}
+
+@plugin "daisyui/theme" {
+  name: "night";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  
+}
+
+*{
+
+    font: 'Times New Roman';
+}
+
+@utility text-gradient{
+    @apply bg-linear-to-r from-[#8D9BF8] to-[#3F52CF] bg-clip-text text-transparent;
+}
