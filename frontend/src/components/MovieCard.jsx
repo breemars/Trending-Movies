@@ -1,5 +1,6 @@
 {/* Returns a Movie Card */}
 import noMoviePoster from '../assets/no-movie-poster.png'
+import { updateSearchCount } from '../appwrite'
 
 // React passes all props into the component as ONE object, composed of:
 // 1. 'movie' -> an object containing all the movie information from TMDB. 
@@ -13,7 +14,12 @@ const MovieCard = ({ movie: { id, title, vote_average, poster_path, release_date
     // If the card is already selected, "isSelected" is set back to null to deselect it. 
     // Otherwise, store this movie's ID as the selected movie card.
     // Click anywhere on the card to toggle this.
-    <div className="m-4" onClick={() => {isSelected === id ? setIsSelected(null) : setIsSelected(id)}}>
+    <div className="m-4" onClick={ async () => {
+                            isSelected === id ? setIsSelected(null) : setIsSelected(id);
+                            await updateSearchCount(query, movie);
+                            updateSearchCount(searchTerm, movie);
+                        }}
+    >
         <div className="hover-3d">
             <figure className="max-w-40 bg-[#050217] rounded-2xl">
 
