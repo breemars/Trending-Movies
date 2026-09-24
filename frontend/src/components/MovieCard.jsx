@@ -8,16 +8,17 @@ import { updateSearchCount } from '../appwrite'
 // 3. 'setIsSelected' -> React state setter used to change the selected movie. 
 // The 'movie' object is also destructed to directly access its properties 
 // instead of having to write movie.id, movie.title, movie.poster_path, etc.
-const MovieCard = ({ movie: { id, title, vote_average, poster_path, release_date, original_language}, isSelected, setIsSelected}) => {
-    
+const MovieCard = ({ movie, isSelected, setIsSelected}) => {
+    const {id, title, vote_average, poster_path, release_date, original_language, overview} = movie; //above comment is wrong. since I am now using the movie object, I cant descrture it til now
+
   return (
     // If the card is already selected, "isSelected" is set back to null to deselect it. 
     // Otherwise, store this movie's ID as the selected movie card.
     // Click anywhere on the card to toggle this.
     <div className="m-4" onClick={ async () => {
-                            isSelected === id ? setIsSelected(null) : setIsSelected(id);
-                            await updateSearchCount(query, movie);
-                            updateSearchCount(searchTerm, movie);
+                            isSelected != null && isSelected.id === id ? setIsSelected(null) : setIsSelected(movie);
+                            //await updateSearchCount(movie);
+                            //updateSearchCount(movie); ?????????????????????
                         }}
     >
         <div className="hover-3d">
@@ -26,7 +27,7 @@ const MovieCard = ({ movie: { id, title, vote_average, poster_path, release_date
                 {/* Movie Poster Image */}
                 {/* Use the movie poster if available, otherwise use the noMoviePoster image */}
                 {/* Only add the 'aura aura-dual' classes when a movie card is currently selected */}
-                <img className={`rounded-2xl ${isSelected === id ? "aura aura-dual" : ""}`} src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : noMoviePoster} alt={title}/> 
+                <img className={`rounded-2xl ${isSelected != null && isSelected.id === id ? "aura aura-dual" : ""}`} src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : noMoviePoster} alt={title}/> 
                 
                 {/* Movie Title */}
                 <h3 className="text-white font-bold m-2">{title}</h3>
