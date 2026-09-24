@@ -3,23 +3,26 @@ import noMoviePoster from '../assets/no-movie-poster.png'
 export const MovieDetails = ({ movie: { id, title, vote_average, poster_path, release_date, original_language, overview}, index, setIsSelected}) => {
     
     return (
+
+        // Use the movie poster as the background of the details card.
+        // If the movie doesn't have a poster, use the default placeholder image.
         <div className="relative bg-cover bg-center h-full rounded-3xl p-3" 
-            style={{
-            backgroundImage: `url(${poster_path
-            ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-            : noMoviePoster})`,
-            }}
+            style={{backgroundImage: `url(${poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+            : noMoviePoster})`}}
         >
 
-            {/* black overlay */}
+            {/* Add a dark overlay over the poster so the movie information is easier to read */}
             <div className="absolute inset-0 bg-[#050217]/80 rounded-3xl"></div>
 
-            <div className="relative z-10 m-4">
+            <div className="relative z-10 m-4 h-full"> 
 
-                {/* is greater than 0, else show back button */}
+                {/* Index is used as an indicator if a selected movie card or the trending movies are being displayed
+                    IF index is < 0, a movie card is selected, so a back button is rendered.
+                        When the button is clicked, the user can view the trending movies again.
+                    ELSE the trending movies are being shown, so display the movie's trending rank (based on the index of the trendingMovies array) */}
                 {index < 0 ? 
                     <button className="btn btn-soft btn-secondary float-right ml-2" onClick={() => setIsSelected(null)}>Back</button>
-                    : <h1 className="text-[175px] font-bold text-gradient m-0">{index}</h1>
+                    : <h1 className="flex justify-center text-4xl md:text-[150px] font-bold text-gradient m-0">-{index}-</h1>
                 }
                                 
                 {/* Movie Title */}
