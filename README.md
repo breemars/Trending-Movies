@@ -29,7 +29,7 @@ You can view the project here:
 
 ## ⭐ Features I Added Independently
 
-Although I followed a [tutorial](____________) as a starting point for this project, I took the project in my own direction and implemented many features and design choices independently.
+Although I followed a [tutorial](https://www.youtube.com/watch?v=8vIDZO_w7lY) as a starting point for this project, I took the project in my own direction and implemented many features and design choices independently.
 
 ### UI & Styling
 
