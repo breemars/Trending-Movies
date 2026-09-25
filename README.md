@@ -4,13 +4,11 @@ A React application that allows users to search for movies, view detailed movie 
 
 Trending Movies uses the **[TMDB API](https://www.themoviedb.org/?language=en-US)** for up-to-date movie information and **Appwrite** to store and track trending movie data.
 
-![Trending Movies](./screenshots/________.png)
+![Movie Search](./screenshots/search_screenshot.png)
 
 ### 🚀 Live Demo
 
-You can view the project here:
-
-**[View Trending Movies](____________________________)**
+You can view the project here: **[View Trending Movies](https://trending-movies-ibkv.onrender.com/)**
 
 ## ✨ Features
 
@@ -124,18 +122,6 @@ This project gave me more experience connecting a React frontend to external API
 
 ## 📸 Screenshots
 
-### Movie Search
+### Movie Selected
 
-![Movie Search](./screenshots/________________.png)
-
-### Movie Details
-
-![Movie Details](./screenshots/________________.png)
-
-### Trending Movies
-
-![Trending Movies](./screenshots/________________.png)
-
-### Mobile Design
-
-![Mobile Design](./screenshots/________________.png)
+![Movie Details](./screenshots/selected_screenshot.png)
